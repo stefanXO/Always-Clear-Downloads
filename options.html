@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Always Clear Downloads in Chrome</title>
+      <style>
+         html, body { background-color: #f7f9fa; font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; }
+         hr { margin:1em 0 1em 0; height:1px; border:none; border-bottom:1px solid #ccc; }
+         h2 { margin-top:2em; }
+         li { margin-bottom:.75em; }
+         ul { margin-top:.75em; }
+         label { cursor: pointer; }
+      </style>
+   </head>
+   <body>
+      <div style="margin:4em auto; width:1000px; max-width: 557px; background-color: white; padding: 30px; font-size:small; border: 1px solid #ccc; border-radius:5px;">
+         <h1>Clear Downloads in Chrome</h1>
+         <span>This extension will clear your download history every few seconds.</span><br /><br />
+         <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=67TZLSEGYQFFW">You can buy me a 🍺 beer or ☕ coffee if you like this</a><br /><br />
+
+         <a href="https://chrome.google.com/webstore/detail/always-clear-downloads-in/efoelbbfbknfhpmgclpcdbkoieedkkai">Please rate ⭐ this free extension</a><br /><br />
+
+         <h2>Enable extension</h2>
+         <input type="checkbox" id="enabled" name="enabled" /> <label for="enabled">Clear downloads every few seconds</label><br />
+
+         <h2>Frequency</h2>
+         Clear downloads every: <input type="number" id="how_often" value="15" style="width:60px;text-align:right" /> seconds <br /><br />
+
+         <h2>Only disable download shelf</h2>
+         <input type="checkbox" id="disable_shelf" name="disable_shelf" /> <label for="disable_shelf">Disable download shelf</label><br /><br />
+         <span>Note: If you have similar extensions enabled, this could lead to the shelf not being disabled. Make sure you don't have other extensions enabled in Chrome that are trying to disable the download shelf.</span><br />
+         <img src="shelf.png" style="max-width: 80%;border:1px solid grey;margin:10px" />
+
+         <br /><br />
+
+
+         <h3>Please note</h3>
+There is an unfixed bug in the Google Chrome API which causes this extension to always reset the downloads folder to the default folder. This is a bug in the Chrome API, not a bug in the "Always Clear Downloads in Chrome" extension.<br /><br />
+
+For instance, if you configure Chrome's default download folder to "c:\downloads" in Chrome's Advanced Settings, then this extension will keep resetting the folder to be that. If you download a file to a different target location using "Save link as...", and pick a different location such as "c:\other\folder" then instead of that new location being the new default, this extension will cause downloads to go back to "c:\downloads" on the next download.<br /><br />
+
+This might not be expected, but it's how the Chrome API works. You might get around this by simply disabling the download shelf instead - instead of clearing the downloads every few seconds. Or increase the clearing interval to an hour, in case you have to download a lot of files to a specific folder.<br /><br />
+
+         <br />
+
+
+         <a href="https://chrome.google.com/webstore/detail/always-clear-downloads-in/efoelbbfbknfhpmgclpcdbkoieedkkai"> It would be nice ❤️ if you could rate ⭐ this free extension.</a> Thank you for using it, I hope it helps.<br /><br />
+
+
+         <span id="message" style="background-color: yellow;opacity: 0.01">Changes saved</span>
+
+      </div>
+      <div style="text-align:center"><span style="opacity: 0.5;font-size:12px; font-weight:normal;">updated by Markus Stefanko (2019)</span><br /><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=67TZLSEGYQFFW" style="text-decoration: none">🍺</a></div>
+      <script src="options.js"></script>
+   </body>
+</html>
