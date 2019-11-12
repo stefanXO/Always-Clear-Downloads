@@ -2,6 +2,8 @@
 // Chrome's downloads will be cleared out every 15 seconds.
 var interval;
 var settings;
+var reloadInterval;
+var reInit = (1.5 * 60 * 60 * 1000);
 // The initialization routine is called only once.
 
 onload = setTimeout(loadEverything, 1000);
@@ -98,12 +100,21 @@ function saveSettings() {
 	});
 }
 
-setInterval(init, 60 * 60 * 1000);
+reloadInterval = setInterval(init, reInit);
 
 function init() {
 	// Set the interval at which the downloads will be erased.
 	clearTimeout(interval);
 	interval = setTimeout(clearDownloads, settings["how_often"] * 1000);
+
+	if(settings["how_often"] * 1000 >= reInit) {
+		clearInterval(reloadInterval);
+		var newReInit = (settings["how_often"] * 1000 * 3) + 1;
+		reloadInterval = setInterval(init, newReInit);
+	}else {
+		clearInterval(reloadInterval);
+		reloadInterval = setInterval(init, reInit);
+	}
 };
 
 function clearDownloads() {
